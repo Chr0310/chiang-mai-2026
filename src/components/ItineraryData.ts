@@ -207,7 +207,7 @@ export const ITINERARY: DaySchedule[] = [
     dayOfWeek: "五",
     title: "抵達清邁 & 泰國蝦吃到飽 & 按摩",
     transport: "BOLT 叫車",
-    imageUrl: "day1.jpg", 
+    imageUrl: "./public/day1.jpg", 
     fallbackImage: "https://images.unsplash.com/photo-1598935898639-6962f0a99605?q=80&w=1000&auto=format&fit=crop",
     items: [
       {
