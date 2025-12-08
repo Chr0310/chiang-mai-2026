@@ -1,5 +1,5 @@
 {
-  "name": "2026",
+  "name": "chiang-mai-2026",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,8 +8,6 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview"
-    "predeploy": "npm run build",
-    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "framer-motion": "^12.23.25",
@@ -30,6 +28,9 @@
     "globals": "^16.5.0",
     "typescript": "~5.9.3",
     "typescript-eslint": "^8.46.4",
-    "vite": "^7.2.4"
+    "vite": "npm:rolldown-vite@7.2.5"
+  },
+  "overrides": {
+    "vite": "npm:rolldown-vite@7.2.5"
   }
 }
