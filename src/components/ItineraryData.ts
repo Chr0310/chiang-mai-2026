@@ -115,7 +115,7 @@ export const FOOD_HIGHLIGHTS: HighlightItem[] = [
     title: "泰國蝦燒烤",
     subtitle: "KUNG YIM",
     description: "新鮮現撈的痛快滋味。",
-    imageUrl: "https://images.unsplash.com/photo-1559314809-0d155014e29e?q=80&w=600&auto=format&fit=crop"
+    imageUrl: " "
   },
   {
     id: "food-2",
