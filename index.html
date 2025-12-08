@@ -1,63 +1,54 @@
+<file path="index.html">
 <!DOCTYPE html>
 <html lang="zh-TW">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Love清邁慢活時光 | Chiang Mai 2026</title>
-    <!-- 這裡是用來做漂亮的排版 (Tailwind) -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-      tailwind.config = {
-        theme: {
-          extend: {
-            fontFamily: {
-              serif: ['"Playfair Display"', '"Noto Serif TC"', 'serif'],
-              sans: ['"Inter"', 'sans-serif'],
-            },
-            colors: {
-              thai: {
-                gold: '#C5A059',
-                goldLight: '#E6C985',
-                pink: '#F28C8C',
-                green: '#8CAB8D',
-                clay: '#D4A373',
-                bg: '#FDFCF8',
-                dark: '#2D2A26'
-              }
-            }
-          }
-        }
-      }
-    </script>
-    <!-- 引入漂亮的字體 -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <style>
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 80px;
-      }
-      body {
-        background-color: #FDFCF8;
-        color: #2D2A26;
-      }
-    </style>
-  <script type="importmap">
-{
-  "imports": {
-    "react/": "https://aistudiocdn.com/react@^19.2.1/",
-    "react": "https://aistudiocdn.com/react@^19.2.1",
-    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.25",
-    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
-    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/"
-  }
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>清邁慢活時光 | Chiang Mai 2026</title>
+<!-- 這裡是用來做漂亮的排版 (Tailwind) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+tailwind.config = {
+theme: {
+extend: {
+fontFamily: {
+serif: ['"Playfair Display"', '"Noto Serif TC"', 'serif'],
+sans: ['"Inter"', 'sans-serif'],
+},
+colors: {
+thai: {
+gold: '#C5A059',
+goldLight: '#E6C985',
+pink: '#F28C8C',
+green: '#8CAB8D',
+clay: '#D4A373',
+bg: '#FDFCF8',
+dark: '#2D2A26'
+}
+}
+}
+}
 }
 </script>
+<!-- 引入漂亮的字體 -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+html {
+scroll-behavior: smooth;
+scroll-padding-top: 80px;
+}
+body {
+background-color: #FDFCF8;
+color: #2D2A26;
+}
+</style>
 </head>
-  <body>
-    <div id="root"></div>
-    <!-- 👇 這行是關鍵！一定要有這一行，網頁才會有畫面 👇 -->
-    <script type="module" src="/src/index.tsx"></script>
-  </body>
+<body>
+<div id="root"></div>
+<!-- 👇 這一行是關鍵！一定要有這一行，網頁才會有畫面 👇 -->
+<script type="module" src="/src/index.tsx"></script>
+</body>
 </html>
+</file>
