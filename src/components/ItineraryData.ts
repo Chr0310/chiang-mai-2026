@@ -34,8 +34,8 @@ export interface TipItem {
 }
 
 export const TRIP_DETAILS = {
-  title: "清邁古城",
-  subtitle: "與櫻花、市集、美食的溫暖相遇",
+  title: "清邁古城的慢活時光",
+  subtitle: "與櫻花、市集、美食的溫暖相遇 (Ver. Fixed)",
   dates: "2026/1/23 - 1/28",
   flights: [
     { code: "CI851", route: "07:15 TPE ➝ 10:25 CNX", date: "1/23 (四)" },
@@ -207,7 +207,7 @@ export const ITINERARY: DaySchedule[] = [
     dayOfWeek: "五",
     title: "抵達清邁 & 泰國蝦吃到飽 & 按摩",
     transport: "BOLT 叫車",
-    imageUrl: "/day1.jpg", 
+    imageUrl: "day1.jpg", 
     fallbackImage: "https://images.unsplash.com/photo-1598935898639-6962f0a99605?q=80&w=1000&auto=format&fit=crop",
     items: [
       {
@@ -287,7 +287,7 @@ export const ITINERARY: DaySchedule[] = [
     dayOfWeek: "六",
     title: "椰子市集 & 德式自助餐 & 周六夜市",
     transport: "機車 (Tawan Bike)",
-    imageUrl: "/day2.jpg",
+    imageUrl: "day2.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1596423067757-01046903f69e?q=80&w=1000&auto=format&fit=crop",
     items: [
       {
@@ -359,7 +359,7 @@ export const ITINERARY: DaySchedule[] = [
     dayOfWeek: "日",
     title: "真心市集 & 古城漫步 & 周日夜市",
     transport: "機車",
-    imageUrl: "/day3.jpg",
+    imageUrl: "day3.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=1000&auto=format&fit=crop",
     items: [
       {
@@ -395,7 +395,7 @@ export const ITINERARY: DaySchedule[] = [
     dayOfWeek: "一",
     title: "山中粉紅櫻花 & 文青藝術村",
     transport: "機車",
-    imageUrl: "/day4.jpg",
+    imageUrl: "day4.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1534008897995-27a23e859048?q=80&w=1000&auto=format&fit=crop",
     items: [
       {
@@ -452,7 +452,7 @@ export const ITINERARY: DaySchedule[] = [
     dayOfWeek: "二",
     title: "夢幻天使瀑布 & 米其林精緻宮廷菜",
     transport: "包計程車 (09:00-19:30)",
-    imageUrl: "/day5.jpg",
+    imageUrl: "day5.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop",
     items: [
       {
@@ -502,7 +502,7 @@ export const ITINERARY: DaySchedule[] = [
     dayOfWeek: "三",
     title: "女兒先回家，媽媽繼續逍遙遊",
     transport: "飯店送機",
-    imageUrl: "/day6.jpg",
+    imageUrl: "day6.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1478860409698-8707f313ee8b?q=80&w=1000&auto=format&fit=crop",
     items: [
       {
