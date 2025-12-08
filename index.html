@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>清邁慢活時光 | Chiang Mai 2026</title>
+    <title>Love清邁慢活時光 | Chiang Mai 2026</title>
     <!-- 這裡是用來做漂亮的排版 (Tailwind) -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -43,10 +43,21 @@
         color: #2D2A26;
       }
     </style>
-  </head>
+  <script type="importmap">
+{
+  "imports": {
+    "react/": "https://aistudiocdn.com/react@^19.2.1/",
+    "react": "https://aistudiocdn.com/react@^19.2.1",
+    "framer-motion": "https://aistudiocdn.com/framer-motion@^12.23.25",
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.556.0",
+    "react-dom/": "https://aistudiocdn.com/react-dom@^19.2.1/"
+  }
+}
+</script>
+</head>
   <body>
     <div id="root"></div>
-    <!-- 👇 最重要的一行！這就是告訴網頁去讀取程式碼的鑰匙 👇 -->
+    <!-- 👇 這行是關鍵！一定要有這一行，網頁才會有畫面 👇 -->
     <script type="module" src="/src/index.tsx"></script>
   </body>
 </html>
