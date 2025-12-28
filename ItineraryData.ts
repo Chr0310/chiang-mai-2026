@@ -34,7 +34,7 @@ export interface TipItem {
 
 export const TRIP_DETAILS = {
   title: "清邁古城的慢活時光",
-  subtitle: "與櫻花、市集、美食的溫暖相遇 (Ver. Images)",
+  subtitle: "與櫻花、市集、美食的溫暖相遇",
   dates: "2026/1/23 - 1/28",
   flights: [
     { code: "CI851", route: "07:15 TPE ➝ 10:25 CNX", date: "1/23 (四)" },
@@ -113,14 +113,14 @@ export const FOOD_HIGHLIGHTS: HighlightItem[] = [
     id: "food-1",
     title: "泰國蝦燒烤",
     subtitle: "KUNG YIM",
-    description: "新鮮現撈的痛快滋味。",
+    description: "多樣化的大頭蝦料理吃到飽。",
     imageUrl: "images/food-1.jpg"
   },
   {
     id: "food-2",
     title: "泰式宮廷菜",
     subtitle: "Saiyut & Doctor Sai",
-    description: "米其林推薦的藝術饗宴。",
+    description: "米其林推薦的泰式藝術美食饗宴。",
     imageUrl: "images/food-2.jpg",
     tag: "Michelin"
   },
@@ -128,7 +128,7 @@ export const FOOD_HIGHLIGHTS: HighlightItem[] = [
     id: "food-3",
     title: "泰北咖哩麵",
     subtitle: "Yook Samai",
-    description: "隱身藝術村的濃郁美味 (Khao Soi)。",
+    description: "泰北著名的濃郁美味 (Khao Soi)。",
     imageUrl: "images/food-3.jpg"
   },
   {
@@ -149,7 +149,7 @@ export const FOOD_HIGHLIGHTS: HighlightItem[] = [
     id: "food-6",
     title: "香蕉煎餅",
     subtitle: "Guu Fusion Roti",
-    description: "尼曼區最邪惡的甜蜜結尾。",
+    description: "充滿甜香的溫暖滋味。",
     imageUrl: "images/food-6.jpg"
   }
 ];
@@ -166,14 +166,14 @@ export const MARKET_HIGHLIGHTS: HighlightItem[] = [
     id: "market-2",
     title: "Warorot Market",
     subtitle: "瓦洛洛市場",
-    description: "在地人的百年大食堂，伴手禮首選。",
+    description: "在地人的市場，伴手禮首選。",
     imageUrl: "images/market-2.jpg"
   },
   {
     id: "market-3",
     title: "Saturday Night Market",
     subtitle: "週六夜市",
-    description: "打銀街上的工藝與傳統。",
+    description: "打銀街上的工藝與傳統美食。",
     imageUrl: "images/market-3.jpg"
   },
   {
