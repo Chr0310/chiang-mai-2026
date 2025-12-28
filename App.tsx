@@ -202,7 +202,7 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-thai-bg text-thai-dark font-sans selection:bg-thai-gold/20">
       
-      {/* Dynamic Capsule Navigation */}
+      {/* Fixed Navigation with Sliding Pill */}
       <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-6'}`}>
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
           <div 
@@ -234,10 +234,17 @@ const App: React.FC = () => {
         </div>
       </nav>
 
-      {/* Hero Section with Reduced Font Size */}
+      {/* Hero Section - Using images/banner.jpg and small font size */}
       <header className="relative h-[85vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
-           <img src="https://images.unsplash.com/photo-1598935898639-6962f0a99605?q=80&w=2000" className="w-full h-full object-cover" alt="Chiang Mai" />
+           <img 
+            src="images/banner.jpg" 
+            className="w-full h-full object-cover" 
+            alt="Chiang Mai Banner" 
+            onError={(e) => {
+              (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1598935898639-6962f0a99605?q=80&w=2000";
+            }}
+           />
            <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-thai-bg"></div>
         </div>
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto mt-20">
@@ -253,7 +260,7 @@ const App: React.FC = () => {
         </div>
       </header>
 
-      {/* Main Content */}
+      {/* Content wrapper */}
       <main className="container mx-auto px-4 -mt-24 relative z-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
             <div className="bg-white p-6 rounded-2xl shadow-xl border border-stone-100">
@@ -282,7 +289,6 @@ const App: React.FC = () => {
 
         {ITINERARY.map((day) => <DaySection key={day.id} day={day} />)}
 
-        {/* Highlights */}
         <div id="food" className="py-24 scroll-mt-24 section-target">
            <div className="flex items-baseline gap-4 mb-12 border-b border-stone-200 pb-4">
               <h3 className="text-3xl font-serif font-bold text-thai-dark">舌尖上的清邁</h3>
@@ -303,7 +309,6 @@ const App: React.FC = () => {
            </div>
         </div>
 
-        {/* Tips & Checklist */}
         <div id="tips" className="py-24 scroll-mt-24 section-target">
           <div className="bg-stone-50 rounded-3xl p-8 md:p-12 border border-stone-200">
             <div className="flex items-center gap-3 mb-10">
