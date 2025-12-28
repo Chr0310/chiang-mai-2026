@@ -13,8 +13,8 @@ import {
 } from 'lucide-react';
 import { 
   ITINERARY, TRIP_DETAILS, CHECKLIST_DATA, FOOD_HIGHLIGHTS, MARKET_HIGHLIGHTS, TRAVEL_TIPS
-} from './components/ItineraryData';
-import type { DaySchedule, ItineraryItem, HighlightItem } from './components/ItineraryData';
+} from './ItineraryData';
+import type { DaySchedule, ItineraryItem, HighlightItem } from './ItineraryData';
 
 const IconMap = {
   food: Utensils,
@@ -83,7 +83,7 @@ const DaySection: React.FC<{ day: DaySchedule }> = ({ day }) => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12">
            <div className="lg:col-span-5 order-1 lg:order-2">
               <div className="sticky top-40">
-                <div className="rounded-2xl overflow-hidden shadow-xl border-4 border-white transform rotate-1 transition-all duration-500 bg-stone-100 relative group">
+                <div className="rounded-3xl overflow-hidden shadow-2xl border-4 border-white transform rotate-1 transition-all duration-500 bg-stone-100 relative group aspect-[4/5] lg:aspect-auto">
                     <img 
                       src={day.imageUrl} 
                       alt={day.title}
@@ -92,10 +92,10 @@ const DaySection: React.FC<{ day: DaySchedule }> = ({ day }) => {
                         (e.target as HTMLImageElement).src = day.fallbackImage;
                       }}
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80 pointer-events-none"></div>
-                    <div className="absolute bottom-6 left-6 right-6 text-white pointer-events-none">
-                        <div className="flex items-center gap-2 text-sm font-medium mb-2 opacity-90">
-                            <Calendar size={14}/>
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-80"></div>
+                    <div className="absolute bottom-6 left-6 right-6 text-white">
+                        <div className="flex items-center gap-2 text-xs font-medium mb-1 opacity-90 uppercase tracking-widest">
+                            <Calendar size={12}/>
                             {day.date} ({day.dayOfWeek})
                         </div>
                         <h3 className="text-2xl font-serif leading-tight">{day.title}</h3>
@@ -103,7 +103,7 @@ const DaySection: React.FC<{ day: DaySchedule }> = ({ day }) => {
                 </div>
                 {day.transport && (
                    <div className="mt-6 flex justify-center">
-                      <span className="inline-flex items-center gap-2 px-4 py-2 bg-stone-100 text-stone-600 rounded-full text-sm font-medium">
+                      <span className="inline-flex items-center gap-2 px-4 py-2 bg-stone-100 text-stone-600 rounded-full text-xs font-bold uppercase tracking-wider">
                         <Car size={14}/> 交通: {day.transport}
                       </span>
                    </div>
@@ -112,7 +112,7 @@ const DaySection: React.FC<{ day: DaySchedule }> = ({ day }) => {
            </div>
 
            <div className="lg:col-span-7 order-2 lg:order-1">
-              <div className="bg-white/50 rounded-3xl p-2 md:p-8">
+              <div className="bg-white/40 rounded-3xl p-2 md:p-8 backdrop-blur-sm border border-white/20">
                 {day.items.map((item, idx) => (
                   <ItineraryItemCard 
                     key={idx} 
@@ -129,19 +129,24 @@ const DaySection: React.FC<{ day: DaySchedule }> = ({ day }) => {
 };
 
 const HighlightCard: React.FC<{ item: HighlightItem }> = ({ item }) => (
-  <div className="group relative overflow-hidden rounded-xl bg-white shadow-sm hover:shadow-lg transition-all border border-stone-100">
+  <div className="group relative overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-xl transition-all border border-stone-100">
     <div className="aspect-[4/3] overflow-hidden relative">
-      <img src={item.imageUrl} alt={item.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
+      <img 
+        src={item.imageUrl} 
+        alt={item.title} 
+        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+        onError={(e) => (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=500"}
+      />
     </div>
-    <div className="p-4">
+    <div className="p-5">
       {item.tag && (
-        <span className="inline-block px-2 py-0.5 bg-thai-gold text-white text-[10px] uppercase tracking-wider font-bold rounded mb-2">
+        <span className="inline-block px-2 py-0.5 bg-thai-gold text-white text-[9px] uppercase tracking-widest font-bold rounded mb-2">
           {item.tag}
         </span>
       )}
       <h4 className="font-serif font-bold text-lg text-thai-dark">{item.title}</h4>
-      <div className="text-xs font-bold text-thai-clay uppercase tracking-wide mb-2">{item.subtitle}</div>
-      <p className="text-sm text-stone-500 line-clamp-2">{item.description}</p>
+      <div className="text-[10px] font-bold text-thai-clay uppercase tracking-widest mb-3">{item.subtitle}</div>
+      <p className="text-sm text-stone-500 line-clamp-2 leading-relaxed">{item.description}</p>
     </div>
   </div>
 );
@@ -202,29 +207,29 @@ const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-thai-bg text-thai-dark font-sans selection:bg-thai-gold/20">
       
-      {/* Fixed Navigation with Sliding Pill */}
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-white/95 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-6'}`}>
+      {/* Capsule Navigation */}
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-3' : 'bg-transparent py-6'}`}>
         <div className="container mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-4">
           <div 
             className="flex flex-col cursor-pointer items-center md:items-start" 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
           >
-             <span className={`font-serif font-bold text-xl tracking-wide transition-colors ${scrolled ? 'text-thai-dark' : 'text-white'}`}>CHIANG MAI</span>
-             <span className="text-[9px] tracking-[0.3em] uppercase text-thai-gold font-bold">Slow Life 2026</span>
+             <span className={`font-serif font-bold text-xl tracking-tight transition-colors ${scrolled ? 'text-thai-dark' : 'text-white'}`}>CHIANG MAI</span>
+             <span className="text-[9px] tracking-[0.4em] uppercase text-thai-gold font-bold">Slow Life 2026</span>
           </div>
 
-          <div className="flex items-center gap-1 bg-stone-200/50 p-1 rounded-full backdrop-blur-sm overflow-x-auto max-w-full no-scrollbar">
+          <div className="flex items-center gap-1 bg-stone-200/40 p-1 rounded-full backdrop-blur-sm overflow-x-auto max-w-full no-scrollbar border border-white/20">
              {navItems.map((item) => (
                <button
                  key={item.id}
                  onClick={() => scrollTo(item.id)}
-                 className={`relative z-10 px-4 py-1.5 rounded-full text-xs font-bold transition-all duration-300 whitespace-nowrap ${activeTab === item.id ? 'text-white' : 'text-stone-500 hover:text-thai-dark'}`}
+                 className={`relative z-10 px-4 py-1.5 rounded-full text-[10px] font-bold transition-all duration-300 whitespace-nowrap ${activeTab === item.id ? 'text-white' : 'text-stone-500 hover:text-thai-dark'}`}
                >
                  {activeTab === item.id && (
                    <motion.div 
-                     layoutId="activeTabPill"
+                     layoutId="navActivePill"
                      className="absolute inset-0 bg-thai-gold rounded-full -z-10 shadow-sm"
-                     transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+                     transition={{ type: "spring", bounce: 0.15, duration: 0.6 }}
                    />
                  )}
                  {item.label}
@@ -234,37 +239,35 @@ const App: React.FC = () => {
         </div>
       </nav>
 
-      {/* Hero Section - Using images/banner.jpg and small font size */}
+      {/* Hero Section */}
       <header className="relative h-[85vh] flex items-center justify-center overflow-hidden">
         <div className="absolute inset-0 z-0">
            <img 
             src="images/banner.jpg" 
             className="w-full h-full object-cover" 
-            alt="Chiang Mai Banner" 
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1598935898639-6962f0a99605?q=80&w=2000";
-            }}
+            alt="Chiang Mai" 
+            onError={(e) => (e.target as HTMLImageElement).src = "https://images.unsplash.com/photo-1598935898639-6962f0a99605?q=80&w=2000"}
            />
-           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-thai-bg"></div>
+           <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/10 to-thai-bg"></div>
         </div>
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto mt-20">
-           <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="inline-block px-4 py-1 border border-white/50 text-white text-[10px] tracking-[0.4em] uppercase font-bold rounded-full mb-6 backdrop-blur-sm">
+           <motion.div initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} className="inline-block px-4 py-1 border border-white/40 text-white text-[9px] tracking-[0.5em] uppercase font-bold rounded-full mb-6 backdrop-blur-sm">
              {TRIP_DETAILS.dates}
            </motion.div>
-           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-serif text-3xl md:text-4xl lg:text-5xl text-white mb-6 leading-tight drop-shadow-xl">
+           <motion.h1 initial={{ opacity: 0, y: 15 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="font-serif text-3xl md:text-5xl text-white mb-6 leading-tight drop-shadow-lg">
              {TRIP_DETAILS.title}
            </motion.h1>
-           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="text-base md:text-lg text-white/90 font-serif italic mb-12 drop-shadow-md">
+           <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.4 }} className="text-base md:text-xl text-white/90 font-serif italic drop-shadow-md">
              {TRIP_DETAILS.subtitle}
            </motion.p>
         </div>
       </header>
 
-      {/* Content wrapper */}
+      {/* Info Cards */}
       <main className="container mx-auto px-4 -mt-24 relative z-20">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto mb-16">
-            <div className="bg-white p-6 rounded-2xl shadow-xl border border-stone-100">
-               <div className="flex items-center gap-3 mb-4 text-thai-clay font-bold text-[10px] uppercase tracking-widest">
+            <div className="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/50">
+               <div className="flex items-center gap-3 mb-5 text-thai-clay font-bold text-[10px] uppercase tracking-widest">
                   <Plane size={16} /> 航班資訊
                </div>
                {TRIP_DETAILS.flights.map((f, i) => (
@@ -275,56 +278,58 @@ const App: React.FC = () => {
                 </div>
               ))}
             </div>
-            <div className="bg-white p-6 rounded-2xl shadow-xl border border-stone-100">
-               <div className="flex items-center gap-3 mb-4 text-thai-clay font-bold text-[10px] uppercase tracking-widest">
-                  <Hotel size={16} /> 住宿資訊
+            <div className="bg-white/80 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/50">
+               <div className="flex items-center gap-3 mb-5 text-thai-clay font-bold text-[10px] uppercase tracking-widest">
+                  <Hotel size={16} /> 住宿預訂
                </div>
                <h3 className="text-lg font-serif font-bold text-thai-dark">{TRIP_DETAILS.hotel.name}</h3>
-               <p className="text-xs text-stone-500 mt-1 mb-4">{TRIP_DETAILS.hotel.note}</p>
-               <a href={TRIP_DETAILS.hotel.url} target="_blank" className="inline-block w-full text-center py-2.5 bg-thai-bg border border-thai-gold text-thai-gold hover:bg-thai-gold hover:text-white rounded-xl transition-all text-xs font-bold">
-                 查看飯店地圖
+               <p className="text-xs text-stone-500 mt-1 mb-5">{TRIP_DETAILS.hotel.note}</p>
+               <a href={TRIP_DETAILS.hotel.url} target="_blank" className="inline-block w-full text-center py-3 bg-thai-bg border border-thai-gold text-thai-gold hover:bg-thai-gold hover:text-white rounded-xl transition-all text-xs font-bold uppercase tracking-widest">
+                 開啟地圖導航
                </a>
             </div>
         </div>
 
         {ITINERARY.map((day) => <DaySection key={day.id} day={day} />)}
 
+        {/* Categories */}
         <div id="food" className="py-24 scroll-mt-24 section-target">
-           <div className="flex items-baseline gap-4 mb-12 border-b border-stone-200 pb-4">
+           <div className="flex items-baseline gap-4 mb-12 border-b border-stone-200 pb-5">
               <h3 className="text-3xl font-serif font-bold text-thai-dark">舌尖上的清邁</h3>
-              <span className="text-[10px] text-thai-clay font-bold tracking-widest uppercase">Gastronomy</span>
+              <span className="text-[10px] text-thai-clay font-bold tracking-[0.2em] uppercase">Gastronomy</span>
            </div>
-           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
              {FOOD_HIGHLIGHTS.map((item) => <HighlightCard key={item.id} item={item} />)}
            </div>
         </div>
 
         <div id="markets" className="py-24 scroll-mt-24 section-target">
-           <div className="flex items-baseline gap-4 mb-12 border-b border-stone-200 pb-4">
+           <div className="flex items-baseline gap-4 mb-12 border-b border-stone-200 pb-5">
               <h3 className="text-3xl font-serif font-bold text-thai-dark">市集迷地圖</h3>
-              <span className="text-[10px] text-thai-clay font-bold tracking-widest uppercase">Local Markets</span>
+              <span className="text-[10px] text-thai-clay font-bold tracking-[0.2em] uppercase">Local Markets</span>
            </div>
-           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
              {MARKET_HIGHLIGHTS.map((item) => <HighlightCard key={item.id} item={item} />)}
            </div>
         </div>
 
+        {/* Guides & Checklist */}
         <div id="tips" className="py-24 scroll-mt-24 section-target">
-          <div className="bg-stone-50 rounded-3xl p-8 md:p-12 border border-stone-200">
-            <div className="flex items-center gap-3 mb-10">
-              <BookOpen className="text-thai-gold" size={28} />
+          <div className="bg-stone-50 rounded-[2rem] p-8 md:p-16 border border-stone-200">
+            <div className="flex items-center gap-3 mb-12">
+              <BookOpen className="text-thai-gold" size={32} />
               <h3 className="font-serif text-3xl text-thai-dark font-bold">旅遊指南</h3>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
               {TRAVEL_TIPS.map((tip, idx) => (
-                <div key={idx} className="bg-white p-6 rounded-2xl shadow-sm">
-                  <h4 className="font-serif font-bold text-lg text-thai-dark mb-4 flex items-center gap-2">
+                <div key={idx} className="bg-white p-8 rounded-2xl shadow-sm border border-stone-100">
+                  <h4 className="font-serif font-bold text-lg text-thai-dark mb-5 flex items-center gap-2">
                     <span className="w-1.5 h-1.5 rounded-full bg-thai-gold"></span> {tip.category}
                   </h4>
-                  <ul className="space-y-2.5">
+                  <ul className="space-y-3">
                     {tip.items.map((item, i) => (
                       <li key={i} className="text-sm text-stone-600 leading-relaxed flex items-start gap-2">
-                        <span className="text-thai-gold mt-1 shrink-0">•</span> <span>{item}</span>
+                        <span className="text-thai-gold mt-1.5 shrink-0 block w-1 h-1 rounded-full bg-thai-gold"></span> <span>{item}</span>
                       </li>
                     ))}
                   </ul>
@@ -335,44 +340,44 @@ const App: React.FC = () => {
         </div>
 
         <div id="checklist" className="py-24 scroll-mt-24 section-target">
-          <div className="bg-white rounded-3xl shadow-sm border border-stone-200 p-8 md:p-12">
-            <div className="flex items-center gap-3 mb-10">
-              <CheckSquare className="text-thai-gold" size={28} />
+          <div className="bg-white rounded-[2rem] shadow-sm border border-stone-200 p-8 md:p-16">
+            <div className="flex items-center gap-3 mb-12">
+              <CheckSquare className="text-thai-gold" size={32} />
               <h3 className="font-serif text-3xl text-thai-dark font-bold">旅人備忘錄</h3>
             </div>
             <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-              <div className="space-y-4">
-                <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-thai-clay border-b border-stone-100 pb-2">行前準備</h4>
+              <div className="space-y-5">
+                <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-thai-clay border-b border-stone-100 pb-3">行前準備</h4>
                 <ul className="space-y-4">
                   {CHECKLIST_DATA.preTrip.map((item, i) => (
-                    <li key={i} className="flex items-center gap-3">
-                      <input type="checkbox" className="w-5 h-5 rounded border-stone-300 text-thai-gold focus:ring-thai-gold" />
-                      <span className="text-stone-600 text-sm">{item}</span>
+                    <li key={i} className="flex items-center gap-4">
+                      <input type="checkbox" className="w-5 h-5 rounded border-stone-300 text-thai-gold focus:ring-thai-gold transition-colors" />
+                      <span className="text-stone-600 text-sm font-medium">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="space-y-4">
-                <h4 className="text-[10px] font-bold uppercase tracking-[0.2em] text-thai-clay border-b border-stone-100 pb-2">在地任務</h4>
+              <div className="space-y-5">
+                <h4 className="text-[10px] font-bold uppercase tracking-[0.3em] text-thai-clay border-b border-stone-100 pb-3">在地任務</h4>
                 <ul className="space-y-4">
                   {CHECKLIST_DATA.onSite.map((item, i) => (
-                    <li key={i} className="flex items-center gap-3">
-                      <input type="checkbox" className="w-5 h-5 rounded border-stone-300 text-thai-gold focus:ring-thai-gold" />
-                      <span className="text-stone-600 text-sm">{item}</span>
+                    <li key={i} className="flex items-center gap-4">
+                      <input type="checkbox" className="w-5 h-5 rounded border-stone-300 text-thai-gold focus:ring-thai-gold transition-colors" />
+                      <span className="text-stone-600 text-sm font-medium">{item}</span>
                     </li>
                   ))}
                 </ul>
               </div>
-              <div className="bg-orange-50/50 rounded-2xl p-8 border border-orange-100">
-                <div className="flex items-center justify-between mb-4">
+              <div className="bg-orange-50/40 rounded-3xl p-8 border border-orange-100/50">
+                <div className="flex items-center justify-between mb-5">
                   <div className="flex items-center gap-2 font-bold text-thai-dark">
-                    <CloudSun size={20} className="text-orange-400" /> <span>{CHECKLIST_DATA.weather.title}</span>
+                    <CloudSun size={20} className="text-orange-400" /> <span className="text-sm">一月氣溫預測</span>
                   </div>
-                  <span className="text-2xl font-serif font-bold text-orange-500">{CHECKLIST_DATA.weather.temp}</span>
+                  <span className="text-2xl font-serif font-bold text-orange-500">18-25°C</span>
                 </div>
-                <p className="text-xs text-stone-600 mb-4">{CHECKLIST_DATA.weather.desc}</p>
-                <div className="flex gap-2 text-[10px] text-orange-700 bg-white/60 p-3 rounded-xl border border-orange-100">
-                  <AlertTriangle size={14} className="shrink-0" /> <span>{CHECKLIST_DATA.weather.warning}</span>
+                <p className="text-xs text-stone-500 leading-relaxed mb-5">乾旱少雨，氣候宜人。但日夜溫差大，早晚清涼，務必攜帶外套備用。</p>
+                <div className="flex gap-2 text-[10px] text-orange-700 bg-white/80 p-4 rounded-xl border border-orange-100 shadow-sm">
+                  <AlertTriangle size={14} className="shrink-0" /> <span className="font-medium">山上（如坤昌阡）氣溫會顯著降低，請準備保暖衣物。</span>
                 </div>
               </div>
             </div>
@@ -380,20 +385,19 @@ const App: React.FC = () => {
         </div>
       </main>
 
-      <footer className="bg-thai-dark text-stone-500 py-24 text-center mt-24">
+      {/* Final Footer */}
+      <footer className="bg-thai-dark text-stone-500 py-32 text-center mt-24">
         <div className="container mx-auto px-6">
             <h2 className="font-serif text-3xl text-white mb-6">Have a wonderful trip!</h2>
-            <p className="text-xs tracking-[0.2em] mb-12 opacity-60 uppercase">Chiang Mai • January 2026</p>
-            <button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="inline-flex items-center gap-2 px-8 py-3 border border-stone-700 rounded-full hover:bg-white hover:text-thai-dark transition-all text-[10px] font-bold uppercase tracking-widest text-white">
+            <p className="text-[10px] tracking-[0.4em] mb-16 opacity-60 uppercase">Chiang Mai • Thailand • 2026</p>
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} 
+              className="inline-flex items-center gap-3 px-10 py-4 border border-stone-700 rounded-full hover:bg-white hover:text-thai-dark transition-all text-[10px] font-bold uppercase tracking-[0.2em] text-white"
+            >
               <ArrowUp size={14} /> Back to Top
             </button>
         </div>
       </footer>
-
-      <style>{`
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-      `}</style>
     </div>
   );
 };
