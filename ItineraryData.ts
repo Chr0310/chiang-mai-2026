@@ -45,12 +45,11 @@ export const TRIP_DETAILS = {
     name: "BED Phrasingh Hotel",
     url: "https://maps.app.goo.gl/rVrjy1fR62LYM79K9",
     note: "1/1 Rachamakkha Soi 8, Phrasingh • Tel: 053 271009",
-    website: "bed.co.th"
-  },
-    hotel: {
+    website: "bed.co.th",
+
     name: "Anumat Premium Budget Hotel",
     url: "https://maps.app.goo.gl/HQBza9doowUewwg56",
-    note: "2 Sam Lan 3 Alley, Tambon Phra Sing, Mueang Chiang Mai District • Tel: +6653903913",
+    note: "2 Sam Lan 3 Alley, Tambon Phra Sing, Mueang Chiang Mai District • Tel: 053 903913",
     website: "https://ibe.hoteliers.guru/ibe/en/Anumat-Premium-Budget-Hotel-Muang-Chiangmai-TH?tid=9c2b94aadd87e412db9cf6e3d52f2189&"
   }
 };
