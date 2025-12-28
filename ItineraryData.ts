@@ -39,9 +39,9 @@ export const TRIP_DETAILS = {
   subtitle: "與櫻花、市集、美食的溫暖相遇",
   dates: "2026/1/23 - 1/28",
   flights: [
-    { code: "CI851", route: "07:15 TPE ➝ 10:25 CNX", date: "1/23 (四)" },
-    { code: "CI852", route: "11:25 CNX ➝ 16:00 TPE", date: "1/28 (二)" },
-    { code: "CI852", route: "11:25 CNX ➝ 16:00 TPE", date: "2/3 (二)" }
+    { code: "CI851", route: "去程 07:15 TPE ➝ 10:25 CNX", date: "1/23 (四)" },
+    { code: "CI852", route: "回程 11:25 CNX ➝ 16:00 TPE", date: "1/28 (二)" },
+    { code: "CI852", route: "回程 11:25 CNX ➝ 16:00 TPE", date: "2/3 (二)" }
   ],
   // Changed to an array of hotels to resolve the error in App.tsx
   hotels: [
@@ -53,17 +53,18 @@ export const TRIP_DETAILS = {
     {
       name: "Anumat Premium Budget Hotel",
       url: "https://maps.app.goo.gl/HQBza9doowUewwg56",
-      note: "2 Sam Lan 3 Alley, Tambon Phra Sing, Mueang Chiang Mai District • Tel: 053 903913",
+      note: "2 Sam Lan 3 Alley, Tambon PhraSing • Tel: 053 903913",
     }
   ]
 };
 
 export const CHECKLIST_DATA = {
   preTrip: [
-    "購買泰國網卡 (Sim Card / eSIM)",
+    "申請泰國入境TDAC",
     "預訂 1/23 桃園機場接送",
     "確認護照效期超過 6 個月",
-    "申請泰國簽證或確認免簽政策"
+    "預訂1/27包車8:00-18:00",
+    "購買旅平險"
   ],
   onSite: [
     "詢問飯店代訂 1/27 午餐 (Saiyut & Doctor Sai)",
