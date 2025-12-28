@@ -3,15 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    
-    <!-- 強制清除快取 Meta Tags -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
-
-    <title>清邁慢活時光 | Chiang Mai 2026 (Nav Updated)</title>
-    
-    <!-- Tailwind CSS -->
+    <title>清邁慢活時光 | Chiang Mai 2026</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
       tailwind.config = {
@@ -24,11 +19,8 @@
             colors: {
               thai: {
                 gold: '#C5A059',
-                goldLight: '#E6C985',
-                pink: '#F28C8C',
-                green: '#8CAB8D',
-                clay: '#D4A373',
                 bg: '#FDFCF8',
+                clay: '#D4A373',
                 dark: '#2D2A26'
               }
             }
@@ -36,24 +28,15 @@
         }
       }
     </script>
-    
-    <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@400;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
-    
     <style>
-      html {
-        scroll-behavior: smooth;
-        scroll-padding-top: 80px;
-      }
-      body {
-        background-color: #FDFCF8;
-        color: #2D2A26;
-      }
+      html { scroll-behavior: smooth; }
+      body { background-color: #FDFCF8; }
+      .no-scrollbar::-webkit-scrollbar { display: none; }
+      .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
     </style>
-
-    <!-- Import Map for External Modules -->
     <script type="importmap">
     {
       "imports": {
@@ -66,64 +49,71 @@
       }
     }
     </script>
-    
-    <!-- Babel for in-browser compilation -->
     <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   </head>
   <body>
     <div id="root"></div>
-
     <script type="module">
       async function loadScript(url) {
-        const res = await fetch(url + '?v=' + new Date().getTime());
-        if (!res.ok) throw new Error(`Failed to load ${url}`);
-        return await res.text();
+        try {
+          const res = await fetch(url + '?v=' + Date.now());
+          if (!res.ok) throw new Error(`Status ${res.status}`);
+          return await res.text();
+        } catch (e) {
+          console.warn(`Failed to load ${url}: ${e.message}`);
+          return null;
+        }
       }
 
       async function init() {
         try {
-          const dataCode = await loadScript('./src/components/ItineraryData.ts');
+          // 嘗試多個可能的地點讀取資料檔
+          let dataCode = await loadScript('./ItineraryData.ts') || await loadScript('./components/ItineraryData.ts');
+          
+          if (!dataCode) {
+            throw new Error("找不到 ItineraryData.ts，請確認檔案是否存在於根目錄或 components 資料夾中。");
+          }
+
           const dataTranspiled = Babel.transform(dataCode, { 
-            presets: ['typescript'],
-            filename: 'ItineraryData.ts'
+            presets: ['typescript'], 
+            filename: 'ItineraryData.ts' 
           }).code;
-          const dataBlob = new Blob([dataTranspiled], { type: 'application/javascript' });
-          const dataUrl = URL.createObjectURL(dataBlob);
+          const dataUrl = URL.createObjectURL(new Blob([dataTranspiled], { type: 'application/javascript' }));
 
-          let appCode = await loadScript('./src/App.tsx');
+          let appCode = await loadScript('./App.tsx');
+          if (!appCode) throw new Error("找不到 App.tsx");
+
+          // 取代所有的 Import 路徑
           appCode = appCode.replace(/from\s+['"]\.\/components\/ItineraryData['"]/g, `from "${dataUrl}"`);
-          
+          appCode = appCode.replace(/from\s+['"]\.\/ItineraryData['"]/g, `from "${dataUrl}"`);
+
           const appTranspiled = Babel.transform(appCode, { 
-            presets: ['react', 'typescript'],
-            filename: 'App.tsx'
+            presets: ['react', 'typescript'], 
+            filename: 'App.tsx' 
           }).code;
-          const appBlob = new Blob([appTranspiled], { type: 'application/javascript' });
-          const appUrl = URL.createObjectURL(appBlob);
+          const appUrl = URL.createObjectURL(new Blob([appTranspiled], { type: 'application/javascript' }));
 
-          let indexCode = await loadScript('./src/index.tsx');
+          let indexCode = await loadScript('./index.tsx');
+          if (!indexCode) throw new Error("找不到 index.tsx");
+          
           indexCode = indexCode.replace(/from\s+['"]\.\/App['"]/g, `from "${appUrl}"`);
-          
           const indexTranspiled = Babel.transform(indexCode, { 
-            presets: ['react', 'typescript'],
-            filename: 'index.tsx'
+            presets: ['react', 'typescript'], 
+            filename: 'index.tsx' 
           }).code;
-          const indexBlob = new Blob([indexTranspiled], { type: 'application/javascript' });
-          const indexUrl = URL.createObjectURL(indexBlob);
-
-          await import(indexUrl);
           
+          await import(URL.createObjectURL(new Blob([indexTranspiled], { type: 'application/javascript' })));
         } catch (e) {
-          console.error("Loader Error:", e);
+          console.error(e);
           document.body.innerHTML = `
-            <div style="color:#d32f2f; padding:40px; font-family:sans-serif; text-align:center;">
-              <h1 style="font-size:24px; margin-bottom:20px;">無法載入應用程式 (Loading Error)</h1>
-              <p>請檢查網路連線或檔案路徑。</p>
-              <pre style="background:#f5f5f5; padding:15px; border-radius:8px; text-align:left; display:inline-block;">${e.message}</pre>
+            <div style="padding:40px; text-align:center; font-family:sans-serif;">
+              <h1 style="color:#d32f2f;">載入失敗 (Load Error)</h1>
+              <p style="color:#666;">${e.message}</p>
+              <p style="font-size:12px; margin-top:20px; color:#999;">請確保 ItineraryData.ts 與 App.tsx 位於 GitHub 專案的正確位置。</p>
             </div>
           `;
         }
       }
-
       init();
     </script>
   </body>
