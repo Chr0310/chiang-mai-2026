@@ -38,13 +38,20 @@ export const TRIP_DETAILS = {
   dates: "2026/1/23 - 1/28",
   flights: [
     { code: "CI851", route: "07:15 TPE ➝ 10:25 CNX", date: "1/23 (四)" },
-    { code: "CI852", route: "11:25 CNX ➝ 16:00 TPE", date: "1/28 (二)" }
+    { code: "CI852", route: "11:25 CNX ➝ 16:00 TPE", date: "1/28 (二)" },
+    { code: "CI852", route: "11:25 CNX ➝ 16:00 TPE", date: "2/3 (二)" }
   ],
   hotel: {
     name: "BED Phrasingh Hotel",
     url: "https://maps.app.goo.gl/rVrjy1fR62LYM79K9",
     note: "1/1 Rachamakkha Soi 8, Phrasingh • Tel: 053 271009",
     website: "bed.co.th"
+  },
+    hotel: {
+    name: "Anumat Premium Budget Hotel",
+    url: "https://maps.app.goo.gl/HQBza9doowUewwg56",
+    note: "2 Sam Lan 3 Alley, Tambon Phra Sing, Mueang Chiang Mai District • Tel: +6653903913",
+    website: "https://ibe.hoteliers.guru/ibe/en/Anumat-Premium-Budget-Hotel-Muang-Chiangmai-TH?tid=9c2b94aadd87e412db9cf6e3d52f2189&"
   }
 };
 
