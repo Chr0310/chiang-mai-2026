@@ -9,7 +9,7 @@
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
 
-    <title>清邁慢活時光 | Chiang Mai 2026 (Fixed)</title>
+    <title>清邁慢活時光 | Chiang Mai 2026 (Nav Updated)</title>
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -73,11 +73,8 @@
   <body>
     <div id="root"></div>
 
-    <!-- Custom Loader Script to Handle TSX on GitHub Pages -->
     <script type="module">
-      // Helper to fetch file content
       async function loadScript(url) {
-        // Add timestamp to prevent caching of source files
         const res = await fetch(url + '?v=' + new Date().getTime());
         if (!res.ok) throw new Error(`Failed to load ${url}`);
         return await res.text();
@@ -85,10 +82,6 @@
 
       async function init() {
         try {
-          console.log("Starting application loader...");
-
-          // 1. Load and Transpile ItineraryData.ts
-          // We strip types and convert to JS
           const dataCode = await loadScript('./src/components/ItineraryData.ts');
           const dataTranspiled = Babel.transform(dataCode, { 
             presets: ['typescript'],
@@ -97,9 +90,7 @@
           const dataBlob = new Blob([dataTranspiled], { type: 'application/javascript' });
           const dataUrl = URL.createObjectURL(dataBlob);
 
-          // 2. Load and Transpile App.tsx
           let appCode = await loadScript('./src/App.tsx');
-          // Update the import path to point to our Blob URL instead of the file path
           appCode = appCode.replace(/from\s+['"]\.\/components\/ItineraryData['"]/g, `from "${dataUrl}"`);
           
           const appTranspiled = Babel.transform(appCode, { 
@@ -109,9 +100,7 @@
           const appBlob = new Blob([appTranspiled], { type: 'application/javascript' });
           const appUrl = URL.createObjectURL(appBlob);
 
-          // 3. Load and Transpile index.tsx
           let indexCode = await loadScript('./src/index.tsx');
-          // Update import path for App
           indexCode = indexCode.replace(/from\s+['"]\.\/App['"]/g, `from "${appUrl}"`);
           
           const indexTranspiled = Babel.transform(indexCode, { 
@@ -121,9 +110,7 @@
           const indexBlob = new Blob([indexTranspiled], { type: 'application/javascript' });
           const indexUrl = URL.createObjectURL(indexBlob);
 
-          // 4. Run the application
           await import(indexUrl);
-          console.log("Application loaded successfully!");
           
         } catch (e) {
           console.error("Loader Error:", e);
