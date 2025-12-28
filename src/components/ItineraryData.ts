@@ -1,4 +1,3 @@
-
 export interface ItineraryItem {
   time: string;
   title: string;
@@ -35,7 +34,7 @@ export interface TipItem {
 
 export const TRIP_DETAILS = {
   title: "清邁古城的慢活時光",
-  subtitle: "與櫻花、市集、美食的溫暖相遇 (Ver. Fixed)",
+  subtitle: "與櫻花、市集、美食的溫暖相遇 (Ver. Images)",
   dates: "2026/1/23 - 1/28",
   flights: [
     { code: "CI851", route: "07:15 TPE ➝ 10:25 CNX", date: "1/23 (四)" },
@@ -75,7 +74,7 @@ export const TRAVEL_TIPS: TipItem[] = [
     items: [
       "涼季 (11月-2月)：最舒適，早晚涼爽，平均氣溫 18-25°C。",
       "熱季 (3月-5月)：氣溫可達 40°C，空氣品質較差 (燒山季)。",
-      "雨季 (6月-10月)：午後雷陣雨，綠意盎然，遊客較少。"
+      "雨季 (6月-10月)：午後雷陣雨，遊客較少。"
     ]
   },
   {
@@ -115,14 +114,14 @@ export const FOOD_HIGHLIGHTS: HighlightItem[] = [
     title: "泰國蝦燒烤",
     subtitle: "KUNG YIM",
     description: "新鮮現撈的痛快滋味。",
-    imageUrl: " "
+    imageUrl: "images/food-1.jpg"
   },
   {
     id: "food-2",
     title: "泰式宮廷菜",
     subtitle: "Saiyut & Doctor Sai",
     description: "米其林推薦的藝術饗宴。",
-    imageUrl: "https://images.unsplash.com/photo-1540189549336-e6e99c3679fe?q=80&w=600&auto=format&fit=crop",
+    imageUrl: "images/food-2.jpg",
     tag: "Michelin"
   },
   {
@@ -130,28 +129,28 @@ export const FOOD_HIGHLIGHTS: HighlightItem[] = [
     title: "泰北咖哩麵",
     subtitle: "Yook Samai",
     description: "隱身藝術村的濃郁美味 (Khao Soi)。",
-    imageUrl: "https://plus.unsplash.com/premium_photo-1664478291780-0c67f5fb15e6?q=80&w=600&auto=format&fit=crop"
+    imageUrl: "images/food-3.jpg"
   },
   {
     id: "food-4",
     title: "德國自助餐",
     subtitle: "Auf der Au Garden",
     description: "提供道地的德國豬腳、香腸與歐式麵包",
-    imageUrl: "https://images.unsplash.com/photo-1626645738196-c2a7c87a8f58?q=80&w=600&auto=format&fit=crop"
+    imageUrl: "images/food-4.jpg"
   },
   {
     id: "food-5",
     title: "冠軍拿鐵",
     subtitle: "Akha Ama",
     description: "被譽為清邁最好喝的咖啡。",
-    imageUrl: "https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=600&auto=format&fit=crop"
+    imageUrl: "images/food-5.jpg"
   },
   {
     id: "food-6",
     title: "香蕉煎餅",
     subtitle: "Guu Fusion Roti",
     description: "尼曼區最邪惡的甜蜜結尾。",
-    imageUrl: "https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=600&auto=format&fit=crop"
+    imageUrl: "images/food-6.jpg"
   }
 ];
 
@@ -161,42 +160,42 @@ export const MARKET_HIGHLIGHTS: HighlightItem[] = [
     title: "Coconut Market",
     subtitle: "椰子市集",
     description: "週末限定的椰林夢幻市集。",
-    imageUrl: "https://images.unsplash.com/photo-1540998394236-40742512f714?q=80&w=600&auto=format&fit=crop"
+    imageUrl: "images/market-1.jpg"
   },
   {
     id: "market-2",
     title: "Warorot Market",
     subtitle: "瓦洛洛市場",
     description: "在地人的百年大食堂，伴手禮首選。",
-    imageUrl: "https://images.unsplash.com/photo-1533900298318-6b8da08a523e?q=80&w=600&auto=format&fit=crop"
+    imageUrl: "images/market-2.jpg"
   },
   {
     id: "market-3",
     title: "Saturday Night Market",
     subtitle: "週六夜市",
     description: "打銀街上的工藝與傳統。",
-    imageUrl: "https://images.unsplash.com/photo-1555400032-474c35639f75?q=80&w=600&auto=format&fit=crop"
+    imageUrl: "images/market-3.jpg"
   },
   {
     id: "market-4",
     title: "Sunday Walking Street",
     subtitle: "週日夜市",
     description: "貫穿古城的世界級不夜城。",
-    imageUrl: "https://images.unsplash.com/photo-1533633310052-a520268153c9?q=80&w=600&auto=format&fit=crop"
+    imageUrl: "images/market-4.jpg"
   },
   {
     id: "market-5",
     title: "Jing Jai Market",
     subtitle: "真心市集",
     description: "質感第一的有機農夫與手作市集。",
-    imageUrl: "https://images.unsplash.com/photo-1488459716781-31db52582fe9?q=80&w=600&auto=format&fit=crop"
+    imageUrl: "images/market-5.jpg"
   },
   {
     id: "market-6",
     title: "Khlong Mae Kha",
     subtitle: "運河市集",
     description: "夜晚迷人的日式風情運河市集。",
-    imageUrl: "https://images.unsplash.com/photo-1542665952-14513db15293?q=80&w=600&auto=format&fit=crop"
+    imageUrl: "images/market-6.jpg"
   }
 ];
 
@@ -207,8 +206,8 @@ export const ITINERARY: DaySchedule[] = [
     dayOfWeek: "五",
     title: "抵達清邁 & 泰國蝦吃到飽 & 按摩",
     transport: "BOLT 叫車",
-    imageUrl: "./public/day1.jpg", 
-    fallbackImage: "https://images.unsplash.com/photo-1598935898639-6962f0a99605?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: "images/day1.jpg", 
+    fallbackImage: "https://images.unsplash.com/photo-1598935898639-6962f0a99605?q=80&w=1000",
     items: [
       {
         time: "10:25",
@@ -287,8 +286,8 @@ export const ITINERARY: DaySchedule[] = [
     dayOfWeek: "六",
     title: "椰子市集 & 德式自助餐 & 周六夜市",
     transport: "機車 (Tawan Bike)",
-    imageUrl: "day2.jpg",
-    fallbackImage: "https://images.unsplash.com/photo-1596423067757-01046903f69e?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: "images/day2.jpg",
+    fallbackImage: "https://images.unsplash.com/photo-1596423067757-01046903f69e?q=80&w=1000",
     items: [
       {
         time: "07:30",
@@ -359,8 +358,8 @@ export const ITINERARY: DaySchedule[] = [
     dayOfWeek: "日",
     title: "真心市集 & 古城漫步 & 周日夜市",
     transport: "機車",
-    imageUrl: "day3.jpg",
-    fallbackImage: "https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: "images/day3.jpg",
+    fallbackImage: "https://images.unsplash.com/photo-1528181304800-259b08848526?q=80&w=1000",
     items: [
       {
         time: "07:30",
@@ -395,8 +394,8 @@ export const ITINERARY: DaySchedule[] = [
     dayOfWeek: "一",
     title: "山中粉紅櫻花 & 文青藝術村",
     transport: "機車",
-    imageUrl: "day4.jpg",
-    fallbackImage: "https://images.unsplash.com/photo-1534008897995-27a23e859048?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: "images/day4.jpg",
+    fallbackImage: "https://images.unsplash.com/photo-1534008897995-27a23e859048?q=80&w=1000",
     items: [
       {
         time: "07:30",
@@ -452,8 +451,8 @@ export const ITINERARY: DaySchedule[] = [
     dayOfWeek: "二",
     title: "夢幻天使瀑布 & 米其林精緻宮廷菜",
     transport: "包計程車 (09:00-19:30)",
-    imageUrl: "day5.jpg",
-    fallbackImage: "https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: "images/day5.jpg",
+    fallbackImage: "https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000",
     items: [
       {
         time: "06:30",
@@ -502,8 +501,8 @@ export const ITINERARY: DaySchedule[] = [
     dayOfWeek: "三",
     title: "女兒先回家，媽媽繼續逍遙遊",
     transport: "飯店送機",
-    imageUrl: "day6.jpg",
-    fallbackImage: "https://images.unsplash.com/photo-1478860409698-8707f313ee8b?q=80&w=1000&auto=format&fit=crop",
+    imageUrl: "images/day6.jpg",
+    fallbackImage: "https://images.unsplash.com/photo-1478860409698-8707f313ee8b?q=80&w=1000",
     items: [
       {
         time: "06:30",
