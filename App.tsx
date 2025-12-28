@@ -143,7 +143,19 @@ const HighlightCard: React.FC<{ item: HighlightItem }> = ({ item }) => (
         )}
       </div>
       <div className="text-[9px] font-bold text-thai-clay uppercase tracking-widest mb-1.5">{item.subtitle}</div>
-      <p className="text-[10px] text-stone-500 line-clamp-2 leading-relaxed">{item.description}</p>
+      <p className="text-[10px] text-stone-500 line-clamp-2 leading-relaxed mb-3">{item.description}</p>
+      
+      {item.mapUrl && (
+        <a 
+          href={item.mapUrl} 
+          target="_blank" 
+          rel="noopener noreferrer"
+          className="inline-flex w-full items-center justify-center gap-1.5 py-1.5 bg-thai-bg border border-thai-gold/20 text-thai-gold hover:bg-thai-gold hover:text-white rounded-lg transition-all text-[9px] font-bold uppercase tracking-widest"
+        >
+          <MapPin size={10} />
+          Google Maps
+        </a>
+      )}
     </div>
   </div>
 );
@@ -275,15 +287,23 @@ const App: React.FC = () => {
                 </div>
               ))}
             </div>
+            
+            {/* Multiple Hotels Display */}
             <div className="bg-white/80 backdrop-blur-md p-4 rounded-xl shadow border border-white/50">
-               <div className="flex items-center gap-2 mb-2 text-thai-clay font-bold text-[8px] uppercase tracking-widest">
+               <div className="flex items-center gap-2 mb-3 text-thai-clay font-bold text-[8px] uppercase tracking-widest">
                   <Hotel size={12} /> 住宿預訂
                </div>
-               <h3 className="text-sm font-serif font-bold text-thai-dark">{TRIP_DETAILS.hotel.name}</h3>
-               <p className="text-[10px] text-stone-500 mt-0.5 mb-2">{TRIP_DETAILS.hotel.note}</p>
-               <a href={TRIP_DETAILS.hotel.url} target="_blank" className="inline-block w-full text-center py-1.5 bg-thai-bg border border-thai-gold/20 text-thai-gold hover:bg-thai-gold hover:text-white rounded-lg transition-all text-[9px] font-bold uppercase tracking-widest">
-                 地圖導航
-               </a>
+               <div className="space-y-4">
+                  {TRIP_DETAILS.hotels.map((hotel, idx) => (
+                    <div key={idx} className={idx !== 0 ? "pt-3 border-t border-stone-100" : ""}>
+                      <h3 className="text-sm font-serif font-bold text-thai-dark">{hotel.name}</h3>
+                      <p className="text-[10px] text-stone-500 mt-0.5 mb-2">{hotel.note}</p>
+                      <a href={hotel.url} target="_blank" className="inline-block w-full text-center py-1.5 bg-thai-bg border border-thai-gold/20 text-thai-gold hover:bg-thai-gold hover:text-white rounded-lg transition-all text-[9px] font-bold uppercase tracking-widest">
+                        地圖導航
+                      </a>
+                    </div>
+                  ))}
+               </div>
             </div>
         </div>
 
