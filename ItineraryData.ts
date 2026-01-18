@@ -36,7 +36,7 @@ export interface TipItem {
 export const TRIP_DETAILS = {
   title: "清邁古城的慢活時光",
   subtitle: "與櫻花、市集、美食的溫暖相遇",
-  dates: "2026/1/23 - 1/28",
+  dates: "2026/1/23 - 1/28 -2/3",
   flights: [
     { code: "CI851", route: "07:15 TPE ➝ 10:25 CNX", date: "1/23 (四)" },
     { code: "CI852", route: "11:25 CNX ➝ 16:00 TPE", date: "1/28 (二)" },
@@ -59,7 +59,7 @@ export const TRIP_DETAILS = {
 export const CHECKLIST_DATA = {
   preTrip: [
     "購買旅平險",
-    "預訂 1/23 台北至桃園的機場專車接送",
+    "1/23 機場專車接送4:30",
     "申請泰國數位入境卡 (TDAC)"
   ],
   onSite: [
