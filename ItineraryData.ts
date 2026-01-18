@@ -412,7 +412,7 @@ export const ITINERARY: DaySchedule[] = [
     id: "day4",
     date: "1/26",
     dayOfWeek: "一",
-    title: "山中粉紅櫻花 & 文青藝術村",
+    title: "文青藝術村 & 蘑菇咖啡廳",
     transport: "機車",
     imageUrl: "images/day4.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1534008897995-27a23e859048?q=80&w=1000",
@@ -469,7 +469,7 @@ export const ITINERARY: DaySchedule[] = [
     id: "day5",
     date: "1/27",
     dayOfWeek: "二",
-    title: "夢幻天使瀑布 & 米其林精緻宮廷菜",
+    title: "山中櫻花 & 天使瀑布 & 米其林宮廷菜",
     transport: "包計程車 (09:00-19:30)",
     imageUrl: "images/day5.jpg",
     fallbackImage: "https://images.unsplash.com/photo-1548013146-72479768bada?q=80&w=1000",
@@ -560,6 +560,29 @@ export const ITINERARY: DaySchedule[] = [
         time: "11:25",
         title: "CI852 起飛",
         description: "女兒搭乘航班先行返台。",
+        icon: "travel"
+      }
+    ]
+  }
+    {
+    id: "dayn",
+    date: "2/3",
+    dayOfWeek: "二",
+    title: "媽媽回家囉",
+    transport: "飯店送機",
+    
+    items: [
+      {
+        time: "08:30",
+        title: "飯店退房",
+        description: "辦理退房手續。",
+        icon: "hotel"
+      },
+      {
+        time: "09:00",
+        title: "前往清邁機場 (CNX)",
+        description: "搭BOLT前往",
+        mapUrl: "https://maps.app.goo.gl/1fWWLBKUvCXrMD2A7",
         icon: "travel"
       }
     ]
