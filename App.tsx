@@ -68,18 +68,25 @@ const DaySection: React.FC<{ day: DaySchedule }> = ({ day }) => {
     <section id={day.id} className="py-4 md:py-6 border-b border-stone-100 last:border-0 relative section-target">
       <div className="container mx-auto px-4">
         
+
+
+
         {/* Day Header - More Compact */}
-        <div className="flex flex-col md:flex-row items-baseline gap-2 mb-3 sticky top-12 z-20 bg-thai-bg/95 backdrop-blur-sm py-1.5 pointer-events-none">
-          <div className="flex items-center gap-2 pointer-events-auto">
-             <div className="text-3xl md:text-4xl font-serif font-bold text-thai-gold">{day.date.split('/')[1]}</div>
-             <div className="flex flex-col">
-                <span className="text-[9px] font-bold tracking-widest text-stone-400 uppercase">January</span>
-                <span className="text-xs font-serif text-stone-600">Day {day.id.replace('day', '')} — {day.dayOfWeek}</span>
-             </div>
-          </div>
-          <div className="h-px bg-stone-100 flex-1 hidden md:block opacity-50"></div>
-          <div className="text-sm md:text-lg font-serif text-thai-dark italic font-medium pointer-events-auto">{day.title}</div>
-        </div>
+<div className="flex flex-col md:flex-row items-baseline gap-2 mb-3 sticky top-12 z-20 bg-thai-bg/95 backdrop-blur-sm py-1.5 pointer-events-none">
+  <div className="flex items-center gap-2 pointer-events-auto">
+      <div className="text-3xl md:text-4xl font-serif font-bold text-thai-gold">{day.date.split('/')[1]}</div>
+      <div className="flex flex-col">
+        {/* ----- 修改開始 ----- */}
+        <span className="text-[9px] font-bold tracking-widest text-stone-400 uppercase">
+            {day.date.split('/')[0] === '2' ? 'FEBRUARY' : 'JANUARY'}
+        </span>
+        {/* ----- 修改結束 ----- */}
+        <span className="text-xs font-serif text-stone-600">Day {day.id.replace('day', '')}  {day.dayOfWeek}</span>
+      </div>
+  </div>
+  <div className="h-px bg-stone-100 flex-1 hidden md:block opacity-50"></div>
+  <div className="text-sm md:text-lg font-serif text-thai-dark italic font-medium pointer-events-auto">{day.title}</div>
+</div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
            {/* Image Column - Clean, No Text Overlays */}
