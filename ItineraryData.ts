@@ -563,7 +563,7 @@ export const ITINERARY: DaySchedule[] = [
         icon: "travel"
       }
     ]
-  }
+  },
     {
     id: "dayn",
     date: "2/3",
