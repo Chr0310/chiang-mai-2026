@@ -216,6 +216,14 @@ export const MARKET_HIGHLIGHTS: HighlightItem[] = [
     description: "夜晚迷人的日式風情運河市集。",
     imageUrl: "images/market-6.jpg",
     mapUrl: "https://maps.app.goo.gl/KKfs4hq3pxcqexAE9"
+  },
+    {
+    id: "market-7",
+    title: "週五雲南早市",
+    subtitle: "雲南早市",
+    description: "週五5:00開的雲南早市，充滿道地雲南少數民族、緬甸小吃。",
+    imageUrl: "images/market-7.jpg",
+    mapUrl: "https://maps.app.goo.gl/AXv9LRKTUyDAS4Jw7"
   }
 ];
 
@@ -583,6 +591,12 @@ export const ITINERARY: DaySchedule[] = [
         title: "前往清邁機場 (CNX)",
         description: "搭BOLT前往",
         mapUrl: "https://maps.app.goo.gl/1fWWLBKUvCXrMD2A7",
+        icon: "travel"
+      },
+       {
+        time: "11:25",
+        title: "CI852 起飛",
+        description: "回台灣啦~",
         icon: "travel"
       }
     ]
