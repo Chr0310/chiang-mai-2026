@@ -597,7 +597,7 @@ export const ITINERARY: DaySchedule[] = [
     ]
   },
     {
-    id: "dayn",
+    id: "day12",
     date: "2/3",
     dayOfWeek: "二",
     title: "媽媽回家囉",
