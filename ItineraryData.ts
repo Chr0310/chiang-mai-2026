@@ -189,7 +189,7 @@ export const MARKET_HIGHLIGHTS: HighlightItem[] = [
     id: "market-3",
     title: "Saturday Night Market",
     subtitle: "週六夜市",
-    description: "打銀街上的工藝與傳統。",
+    description: "打銀街上的工藝與傳統，週六限定。",
     imageUrl: "images/market-3.jpg",
     mapUrl: "https://maps.app.goo.gl/D2Yc8J3X7m7X9"
   },
@@ -197,14 +197,14 @@ export const MARKET_HIGHLIGHTS: HighlightItem[] = [
     id: "market-4",
     title: "Sunday Walking Street",
     subtitle: "週日夜市",
-    description: "貫穿古城的世界級不夜城。",
+    description: "貫穿古城的世界級不夜城，周日限定。",
     imageUrl: "images/market-4.jpg",
     mapUrl: "https://maps.app.goo.gl/X9X7X8V7X6X5"
   },
   {
     id: "market-5",
     title: "Jing Jai Market",
-    subtitle: "真心市集",
+    subtitle: "真心市集，周末限定",
     description: "質感第一的有機農夫與手作市集。",
     imageUrl: "images/market-5.jpg",
     mapUrl: "https://maps.app.goo.gl/drSyE27oe3n6j93t6"
@@ -224,6 +224,30 @@ export const MARKET_HIGHLIGHTS: HighlightItem[] = [
     description: "週五5:00開的雲南早市，充滿道地雲南少數民族、緬甸小吃。",
     imageUrl: "images/market-7.jpg",
     mapUrl: "https://maps.app.goo.gl/AXv9LRKTUyDAS4Jw7"
+    },
+    {
+    id: "market-8",
+    title: "Chiang Mai Gate Market",
+    subtitle: "清邁門傳統市場",
+    description: "感受清邁當地人的真正日常，早上6、7點最熱鬧。",
+    imageUrl: "images/market-8.jpg",
+    mapUrl: "https://maps.app.goo.gl/of8b4QDUtNCartiu6"
+    },
+    {
+    id: "market-9",
+    title: "Kad Na Mor Market",
+    subtitle: "清邁大學(前門)夜市",
+    description: "數之不盡的街頭小吃、廉價流行服飾、鞋子、生活雜貨等。",
+    imageUrl: "images/market-9.jpg",
+    mapUrl: "https://maps.app.goo.gl/bpo22UD5ZUKkDbZz9"
+},
+      {
+    id: "market-10",
+    title: "Kad Manee Market",
+    subtitle: "噴水池夜市",
+    description: "鄰近清邁機場，是最多本地人光顧的夜市之一，每天17-22:00",
+    imageUrl: "images/market-10.jpg",
+    mapUrl: "https://maps.app.goo.gl/bpo22UD5ZUKkDbZz9"
   }
 ];
 
@@ -578,7 +602,7 @@ export const ITINERARY: DaySchedule[] = [
     dayOfWeek: "二",
     title: "媽媽回家囉",
     transport: "飯店送機",
-    
+    imageUrl: "images/dayn.jpg",
     items: [
       {
         time: "08:30",
