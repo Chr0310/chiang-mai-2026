@@ -514,36 +514,25 @@ export const ITINERARY: DaySchedule[] = [
       },
       {
         time: "08:00",
-        title: "Khun Chang Khian (坤昌阡)",
-        description: "包車去賞櫻。被譽為「泰國櫻花谷」，每年 1 月粉紅色的喜馬拉雅櫻花染紅山頭，漫步於櫻花隧道下，感受屬於熱帶高山的浪漫春意。",
+        title: "Dantewada Land of Angels Waterfall Park",
+        description: "震撼的人造迷霧瀑布園區，巨石、瀑布與飄渺水霧交織出如仙境般的場景，隨手一拍都是仙氣飄飄的大片。",
+        mapUrl: "https://maps.app.goo.gl/8K84Gkr1YsFDtS9JA",
         icon: "activity"
       },
-      {
+     {
         time: "12:00",
         title: "Saiyut & Doctor Sai Kitchen",
         description: "米其林推薦餐廳，以傳承百年的泰式宮廷料理聞名。精緻如藝術品的果雕與擺盤，讓每一道菜都像是一場視覺饗宴。",
         mapUrl: "https://maps.app.goo.gl/KM5MSmLgU1NrifhdA",
         icon: "food"
       },
-      {
-        time: "14:30",
-        title: "Dantewada Land of Angels Waterfall Park",
-        description: "震撼的人造迷霧瀑布園區，巨石、瀑布與飄渺水霧交織出如仙境般的場景，隨手一拍都是仙氣飄飄的大片。",
-        mapUrl: "https://maps.app.goo.gl/8K84Gkr1YsFDtS9JA",
-        icon: "activity"
-      },
+    
       {
         time: "18:00",
         title: "Khlong Mae Kha 運河市集",
         description: "經過整治後的運河煥然一新，兩岸點綴著日式燈籠與小花，有「清邁小樽」之稱，夜晚倒影迷人，適合散步拍照。",
         mapUrl: "https://maps.app.goo.gl/KKfs4hq3pxcqexAE9",
         icon: "shop"
-      },
-      {
-        time: "19:30",
-        title: "回到 BED HOTEL",
-        description: "結束美好的一天。",
-        icon: "hotel"
       }
     ]
   },
