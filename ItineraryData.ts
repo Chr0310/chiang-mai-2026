@@ -60,12 +60,11 @@ export const CHECKLIST_DATA = {
   preTrip: [
     "購買旅平險",
     "1/23 機場專車接送4:30",
-    "申請泰國數位入境卡 (TDAC)"
+    "華航　第一航廈(自助託運行李服務：8號櫃台(服務時間 05:00-08:00)、10號櫃台(服務時間 08:00-22:00)）"
   ],
   onSite: [
-    "詢問 BED Hotel 是否可代為包車 (1/27 行程)",
-    "透過 BED Hotel 預約租機車 (1/24-1/26 行程)",
-    "請 BED Hotel 代訂 1/27 13:00 的【Saiyut & Doctor Sai Kitchen】"
+    "BED Hotel 代為包車 (1/27 8:00-12:00  費用：1800泰銖)",
+    "透過 BED Hotel 預約租機車 (1/24-1/26 行程)"
   ],
   weather: {
     title: "一月氣溫",
